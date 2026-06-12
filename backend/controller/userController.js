@@ -39,7 +39,7 @@ export const  Registor =async(req,res)=>{
     from:process.env.EMAIL,
     to:email,
     subject:"Email verification ",
-    html:`<h3>your verification link is  </h3> <a href="http://localhost:5173/verified?token=${token}">verify </a>`
+    html:`<h3>your verification link is  </h3> <a href="${process.env.FRONTEND_URL}/verified?token=${token}">verify </a>`
    }
    await trans.sendMail(mailoption)
    res.json({success:true,msg:'Please check your Email for verification Link  '})
